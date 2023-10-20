@@ -6,15 +6,15 @@ body{
 
 #calculator-div{
     border: 0.5rem solid black;
-    width: 40vw;
-    height: 60vh;
+    width: 40rem;
+    height: 60rem;
     margin-top: 20vh;
 }
 
 #display-container{
     border: 0.3rem solid black;
-    width: 35vw;
-    height: 10vh;
+    width: 35rem;
+    height: 10rem;
     margin: auto;
     margin-top: 1vh;
     /* margin: 0.5rem; */
@@ -23,15 +23,15 @@ body{
 #buttons-container{
     border: 0.3rem solid black;
     margin: 1vh auto;
-    width: 35vw;
-    height: 45vh;
+    width: 35rem;
+    height: 45rem;
 }
 
 .row-container{
     border: 0.3rem solid grey;
     /* margin: 1vh auto; */
-    width: 33vw;
-    height: 9vh;
+    width: 33rem;
+    height: 9rem;
     margin: auto;
     margin-top: 1vh;
     display: flex;
@@ -43,7 +43,11 @@ body{
 
 .calculator-button{
     border: 0.3rem solid green;
-    width: 6vw;
-    height: 6vh;
-    
+    width: 6rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-weight: bold; */
+    font-size: 5rem;
 }
