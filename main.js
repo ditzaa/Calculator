@@ -1,5 +1,5 @@
 function add(a, b){
-    return a + b;
+    return +a + +b;
 }
 
 function subtract(a, b){
@@ -19,17 +19,21 @@ function divide(a, b){
     }
 }
 
-let firstNumber;
-let secondNumber;
-let operator;
+let firstNumber = '';
+let secondNumber = '';
+let operator = '';
+let currentValue;
 
 function operate(firstNumber, secondNumber, operator){
-    return add(firstNumber, secondNumber);
+    if(operator == '+'){
+        return add(firstNumber, secondNumber);
+    }
 }
 
 const mainContainer = document.querySelector('#calculator-div');
 const buttonsContainer = document.querySelector('#buttons-container');
 const numbersDisplay = document.getElementById('numbers-container');
+const upperNumbersDisplay = document.getElementById('upper-numbers-container');
 
 //buttons are ordered left to right, top to bottom 
 let idOfButton = 'button0';
@@ -160,9 +164,25 @@ content13.textContent = '.';
 
 let content14 = document.getElementById('button14');
 content14.textContent = '+';
+content14.addEventListener('click', () =>{
+    if(operator == ''){
+        numbersDisplay.textContent = '';
+        firstNumber = displayValue;
+        upperNumbersDisplay.textContent = displayValue + '+';
+        operator = '+';
+
+    }
+})
 
 let content15 = document.getElementById('button15');
 content15.textContent = '=';
-
-//
-console.log('Cocos:' + displayValue);
+content15.addEventListener('click', () =>{
+    secondNumber = displayValue;
+    displayValue = operate(firstNumber, secondNumber, operator);
+    numbersDisplay.textContent = "" + displayValue;
+    upperNumbersDisplay.textContent = '';
+    operator = '';
+    firstNumber = '';
+    secondNumber = '';
+    // currentValue = displayValue;
+})

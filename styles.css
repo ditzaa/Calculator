@@ -16,11 +16,12 @@ body{
     width: 35rem;
     height: 7rem;
     margin: auto;
-    margin-top: 1vh;
+    margin-top: 0.5rem;
     display: flex;
     align-items: flex-end;
-    font-size: 3.5rem;
+    font-size: 2rem;
     justify-content:flex-end;
+    flex-direction: column;
 }
 
 #buttons-container{
@@ -31,6 +32,13 @@ body{
 }
 
 #numbers-container{
+    margin-right: 2rem;
+    border: 0.2rem solid blue;
+}
+
+#upper-numbers-container{
+    border: 0.2rem solid purple;
+    display: block;
     margin-right: 2rem;
 }
 
