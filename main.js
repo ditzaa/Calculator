@@ -3,7 +3,7 @@ function add(a, b){
 }
 
 function subtract(a, b){
-    return a - b;
+    return +a - +b;
 }
 
 function multiply(a, b){
@@ -27,6 +27,10 @@ let currentValue;
 function operate(firstNumber, secondNumber, operator){
     if(operator == '+'){
         return add(firstNumber, secondNumber);
+    }
+
+    if(operator == '-'){
+        return subtract(firstNumber, secondNumber);
     }
 }
 
@@ -149,6 +153,23 @@ content10.addEventListener('click', () =>{
 
 let content11 = document.getElementById('button11');
 content11.textContent = '-';
+content11.addEventListener('click', () =>{
+    if(operator == ''){
+        if(firstNumber == ''){
+            displayValue = '-';
+            numbersDisplay.textContent = '-';
+
+        }else{
+            numbersDisplay.textContent = '';
+            firstNumber += displayValue;
+            upperNumbersDisplay.textContent = displayValue + '-';
+            operator = '-';
+        }
+        
+
+    }
+})
+
 
 let content12 = document.getElementById('button12');
 content12.textContent = '0';
