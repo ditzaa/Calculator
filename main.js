@@ -155,7 +155,7 @@ let content11 = document.getElementById('button11');
 content11.textContent = '-';
 content11.addEventListener('click', () =>{
     if(operator == ''){
-        if(firstNumber == ''){
+        if(numbersDisplay.textContent == ''){
             displayValue = '-';
             numbersDisplay.textContent = '-';
 
@@ -165,8 +165,22 @@ content11.addEventListener('click', () =>{
             upperNumbersDisplay.textContent = displayValue + '-';
             operator = '-';
         }
-        
+    }else if(operator == '-'){
+        displayValue = '-';
+        numbersDisplay.textContent = '-';
+    }
 
+    if(operator == '+'){
+        if(numbersDisplay.textContent == ''){
+            displayValue = '-';
+            numbersDisplay.textContent = '-';
+
+        }else{
+            numbersDisplay.textContent = '';
+            firstNumber += displayValue;
+            upperNumbersDisplay.textContent = displayValue + '-';
+            operator = '-';
+        }
     }
 })
 
