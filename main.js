@@ -45,7 +45,7 @@ for(i=0; i<4; i++){
 
     
     for(j=0; j<4; j++){
-        let calculatorButton = document.createElement('div');
+        let calculatorButton = document.createElement('button');
         calculatorButton.classList.add('calculator-button');
         calculatorButton.setAttribute('id', idOfButton);
         index++;
