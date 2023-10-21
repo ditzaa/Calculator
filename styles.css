@@ -17,14 +17,21 @@ body{
     height: 7rem;
     margin: auto;
     margin-top: 1vh;
-    /* margin: 0.5rem; */
+    display: flex;
+    align-items: flex-end;
+    font-size: 3.5rem;
+    justify-content:flex-end;
 }
 
 #buttons-container{
     border: 0.3rem solid black;
-    margin: 1vh auto;
+    margin: 1rem auto;
     width: 35rem;
     height: 38rem;
+}
+
+#numbers-container{
+    margin-right: 2rem;
 }
 
 .row-container{
