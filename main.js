@@ -7,7 +7,7 @@ function subtract(a, b){
 }
 
 function multiply(a, b){
-    return a*b;
+    return +a* (+b);
 }
 
 function divide(a, b){
@@ -31,6 +31,10 @@ function operate(firstNumber, secondNumber, operator){
 
     if(operator == '-'){
         return subtract(firstNumber, secondNumber);
+    }
+
+    if(operator == '*'){
+        return multiply(firstNumber, secondNumber);
     }
 }
 
@@ -123,6 +127,14 @@ content6.addEventListener('click', () =>{
 
 let content7 = document.getElementById('button7');
 content7.textContent = '*';
+content7.addEventListener('click', () =>{
+    if(operator == ''){
+        numbersDisplay.textContent = '';
+        firstNumber = displayValue;
+        upperNumbersDisplay.textContent = displayValue + '*';
+        operator = '*';
+    }
+})
 
 let content8 = document.getElementById('button8');
 content8.textContent = '1';
@@ -165,7 +177,7 @@ content11.addEventListener('click', () =>{
             upperNumbersDisplay.textContent = displayValue + '-';
             operator = '-';
         }
-    }else if(operator == '-'){
+    }else if(operator == '-' || operator == '*'){
         displayValue = '-';
         numbersDisplay.textContent = '-';
     }
