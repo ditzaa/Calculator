@@ -56,9 +56,10 @@ body{
 
 }
 
-#clear-button{
-    margin-left: 19.5rem;
-}
+/* #clear-button #backspace-button #sign-button{
+    margin-left: 6.6rem;
+    width: 2*5rem;
+} */
 
 .calculator-button{
     border: 0.3rem solid green;
@@ -69,4 +70,9 @@ body{
     align-items: center;
     /* font-weight: bold; */
     font-size: 4rem;
+}
+
+#clear-button{
+    width: 11.5rem;
+    /* margin-left: 1.8rem; */
 }
