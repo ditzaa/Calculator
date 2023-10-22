@@ -9,26 +9,32 @@ body{
     width: 40rem;
     height: 48rem;
     margin-top: 1rem;
+    border-radius: 2rem; 
+    background-color: grey;
 }
 
 #display-container{
     border: 0.3rem solid black;
-    width: 35rem;
+    background-color: #C0C0C0;
+    width: 33rem;
     height: 7rem;
     margin: auto;
-    margin-top: 0.5rem;
+    margin-top: 2rem;
     display: flex;
     align-items: flex-end;
     font-size: 2rem;
     justify-content:flex-end;
     flex-direction: column;
+    border-radius: 2rem; 
 }
 
 #buttons-container{
-    border: 0.3rem solid black;
+    /* border: 0.3rem solid black; */
     margin: 1rem auto;
     width: 35rem;
     height: 38rem;
+    /* gap: 2rem; */
+    
 }
 
 #numbers-container{
@@ -43,12 +49,13 @@ body{
 }
 
 .row-container{
-    border: 0.3rem solid grey;
+    /* border: 0.3rem solid yellow; */
     /* margin: 1vh auto; */
     width: 33rem;
     height: 6rem;
     margin: auto;
     margin-top: 1rem;
+    margin-bottom: 1.3rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,17 +69,20 @@ body{
 } */
 
 .calculator-button{
-    border: 0.3rem solid green;
-    width: 5rem;
-    height: 5rem;
+    border: 0.3rem solid black;
+    width: 6.7rem;
+    height: 6.7rem;
     display: flex;
     justify-content: center;
     align-items: center;
     /* font-weight: bold; */
     font-size: 4rem;
+    border-radius: 1.5rem; 
+    padding: 0;
+    /* margin-top: 5rem; */
 }
 
 #clear-button{
-    width: 11.5rem;
+    width: 14.9rem; /* 2*6.7 + 1.5 */
     /* margin-left: 1.8rem; */
 }
