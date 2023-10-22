@@ -2,6 +2,7 @@ let firstNumber = '';
 let secondNumber = '';
 let operator = '';
 let notAllowed = false;
+let isFloating = false;
 
 function add(a, b){
     return +a + +b;
@@ -127,6 +128,7 @@ content3.addEventListener('click', () =>{
             upperNumbersDisplay.textContent = upperNumbersDisplay.textContent.slice(0, -1);
             notAllowed = true;
         }
+        isFloating = false; 
     }
 })
 
@@ -176,6 +178,7 @@ content7.addEventListener('click', () =>{
                 upperNumbersDisplay.textContent = upperNumbersDisplay.textContent.slice(0, -1);
             }
         }
+        isFloating = false; 
     }
    
 })
@@ -222,6 +225,7 @@ content11.addEventListener('click', () =>{
             numbersDisplay.textContent = '';
             operator = '-';
         }
+        isFloating = false; 
     }
   
       
@@ -238,6 +242,14 @@ content12.addEventListener('click', () =>{
 
 let content13 = document.getElementById('button13');
 content13.textContent = '.';
+content13.addEventListener('click', () =>{
+    if(notAllowed == false){
+        if(isFloating == false){
+            numbersDisplay.textContent = numbersDisplay.textContent + '.';
+            isFloating = true; 
+        }   
+    }  
+})
 
 let content14 = document.getElementById('button14');
 content14.textContent = '+';
@@ -254,6 +266,7 @@ content14.addEventListener('click', () =>{
             numbersDisplay.textContent = '';
             operator = '+';
         }
+        isFloating = false; 
     }
     
 })
