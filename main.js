@@ -3,6 +3,7 @@ let secondNumber = '';
 let operator = '';
 let notAllowed = false;
 let isFloating = false;
+let numberSign = '+';
 
 function add(a, b){
     return +a + +b;
@@ -129,6 +130,7 @@ content3.addEventListener('click', () =>{
             notAllowed = true;
         }
         isFloating = false; 
+        numberSign = '+';
     }
 })
 
@@ -179,6 +181,7 @@ content7.addEventListener('click', () =>{
             }
         }
         isFloating = false; 
+        numberSign = '+';
     }
    
 })
@@ -226,6 +229,7 @@ content11.addEventListener('click', () =>{
             operator = '-';
         }
         isFloating = false; 
+        numberSign = '+';
     }
   
       
@@ -267,6 +271,7 @@ content14.addEventListener('click', () =>{
             operator = '+';
         }
         isFloating = false; 
+        numberSign = '+';
     }
     
 })
@@ -292,4 +297,34 @@ clearButton.addEventListener('click', () =>{
     operator = '';
     startedOperation = false;
     notAllowed = false;
+})
+
+const backspaceButton = document.getElementById('backspace-button');
+backspaceButton.addEventListener('click', () =>{
+    if(notAllowed == false){
+        numbersDisplay.textContent = numbersDisplay.textContent.slice(0, -1);
+    }
+   
+})
+
+const signButton = document.getElementById('sign-button');
+signButton.addEventListener('click', () =>{
+    if(notAllowed==false){
+        
+       if(numberSign == '+'){
+        numberSign = '-';console.log('hi');
+        if(numbersDisplay.textContent = ''){
+            numbersDisplay.textContent = '-';
+        }
+        numbersDisplay.textContent = '-' + numbersDisplay.textContent;
+        // minusSign.concat(numbersDisplay.textContent);
+        }
+
+        else if(numberSign == '-'){
+            console.log('bye');
+            numberSign = '+';
+            numbersDisplay.textContent = numbersDisplay.textContent.substring(1);
+        }
+    }
+    
 })
