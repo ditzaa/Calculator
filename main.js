@@ -274,10 +274,21 @@ content14.addEventListener('click', () =>{
 let content15 = document.getElementById('button15');
 content15.textContent = '=';
 content15.addEventListener('click', () =>{
-    setNumbers();
-    numbersDisplay.textContent = operate(firstNumber, secondNumber, operator);
+    if(startedOperation == true){
+        setNumbers();
+        numbersDisplay.textContent = operate(firstNumber, secondNumber, operator);
+        upperNumbersDisplay.textContent = '';
+        operator = '';
+        startedOperation = false;
+    } 
+})
+
+const clearButton = document.getElementById('clear-button');
+clearButton.addEventListener('click', () =>{
+    firstNumber = '';
+    secondNumber = '';
+    numbersDisplay.textContent = ''
     upperNumbersDisplay.textContent = '';
     operator = '';
     startedOperation = false;
-    
 })
