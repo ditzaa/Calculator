@@ -1,3 +1,8 @@
+let firstNumber = '';
+let secondNumber = '';
+let operator = '';
+let notAllowed = false;
+
 function add(a, b){
     return +a + +b;
 }
@@ -12,17 +17,13 @@ function multiply(a, b){
 
 function divide(a, b){
     if(b == 0){
-        return 'NOT ALLOWED';
+        notAllowed = true;
+        return 'You cannot divide by 0! Please clear!';
     }
     else{
         return +a/ (+b);
     }
 }
-
-let firstNumber = '';
-let secondNumber = '';
-let operator = '';
-let currentValue;
 
 function operate(firstNumber, secondNumber, operator){
     if(operator == '+'){
@@ -81,7 +82,7 @@ let startedOperation = false;
 let content = document.getElementById('button0');
 content.textContent = '7';
 content.addEventListener('click', () =>{
-    if(numbersDisplay.textContent.length <18){
+    if(numbersDisplay.textContent.length <18 && notAllowed === false){
         numbersDisplay.textContent = numbersDisplay.textContent + content.textContent;
         displayValue = numbersDisplay.textContent;
     }
@@ -90,7 +91,7 @@ content.addEventListener('click', () =>{
 let content1 = document.getElementById('button1');
 content1.textContent = '8';
 content1.addEventListener('click', () =>{
-    if(numbersDisplay.textContent.length <18){
+    if(numbersDisplay.textContent.length <18 && notAllowed === false){
         numbersDisplay.textContent = numbersDisplay.textContent + content1.textContent;
         displayValue = numbersDisplay.textContent;
     } 
@@ -99,7 +100,7 @@ content1.addEventListener('click', () =>{
 let content2 = document.getElementById('button2');
 content2.textContent = '9';
 content2.addEventListener('click', () =>{
-    if(numbersDisplay.textContent.length <18){
+    if(numbersDisplay.textContent.length <18 && notAllowed === false){
         numbersDisplay.textContent = numbersDisplay.textContent + content2.textContent;
         displayValue = numbersDisplay.textContent;
     } 
@@ -109,23 +110,30 @@ content2.addEventListener('click', () =>{
 let content3 = document.getElementById('button3');
 content3.textContent = '/';
 content3.addEventListener('click', () =>{
-    if(startedOperation == false){
-        upperNumbersDisplay.textContent = numbersDisplay.textContent + '/';
-        numbersDisplay.textContent = '';
-        operator = '/';
-        startedOperation = true;
-    }else if(startedOperation == true){
-        setNumbers();
-        upperNumbersDisplay.textContent = operate(firstNumber, secondNumber, operator) + '/';
-        numbersDisplay.textContent = '';
-        operator = '/';
+    if(notAllowed === false){
+        if(startedOperation == false){
+            upperNumbersDisplay.textContent = numbersDisplay.textContent + '/';
+            numbersDisplay.textContent = '';
+            operator = '/';
+            startedOperation = true;
+        }else if(startedOperation == true){
+            setNumbers();
+            upperNumbersDisplay.textContent = operate(firstNumber, secondNumber, operator) + '/';
+            numbersDisplay.textContent = '';
+            operator = '/';
+        }
+
+        if(upperNumbersDisplay.textContent.search('Please clear') != -1){
+            upperNumbersDisplay.textContent = upperNumbersDisplay.textContent.slice(0, -1);
+            notAllowed = true;
+        }
     }
 })
 
 let content4 = document.getElementById('button4');
 content4.textContent = '4';
 content4.addEventListener('click', () =>{
-    if(numbersDisplay.textContent.length <18){
+    if(numbersDisplay.textContent.length <18 && notAllowed === false){
         numbersDisplay.textContent = numbersDisplay.textContent + content4.textContent;
         displayValue = numbersDisplay.textContent;
     } 
@@ -134,7 +142,7 @@ content4.addEventListener('click', () =>{
 let content5 = document.getElementById('button5');
 content5.textContent = '5';
 content5.addEventListener('click', () =>{
-    if(numbersDisplay.textContent.length <18){
+    if(numbersDisplay.textContent.length <18 && notAllowed === false){
         numbersDisplay.textContent = numbersDisplay.textContent + content5.textContent;
         displayValue = numbersDisplay.textContent;
     } 
@@ -144,7 +152,7 @@ content5.addEventListener('click', () =>{
 let content6 = document.getElementById('button6');
 content6.textContent = '6';
 content6.addEventListener('click', () =>{
-    if(numbersDisplay.textContent.length <18){
+    if(numbersDisplay.textContent.length <18 && notAllowed === false){
         numbersDisplay.textContent = numbersDisplay.textContent + content6.textContent;
         displayValue = numbersDisplay.textContent;
     } 
@@ -153,23 +161,29 @@ content6.addEventListener('click', () =>{
 let content7 = document.getElementById('button7');
 content7.textContent = '*';
 content7.addEventListener('click', () =>{
-    if(startedOperation == false){
-        upperNumbersDisplay.textContent = numbersDisplay.textContent + '*';
-        numbersDisplay.textContent = '';
-        operator = '*';
-        startedOperation = true;
-    }else if(startedOperation == true){
-        setNumbers();
-        upperNumbersDisplay.textContent = operate(firstNumber, secondNumber, operator) + '*';
-        numbersDisplay.textContent = '';
-        operator = '*';
+    if(notAllowed == false){
+        if(startedOperation == false){
+            upperNumbersDisplay.textContent = numbersDisplay.textContent + '*';
+            numbersDisplay.textContent = '';
+            operator = '*';
+            startedOperation = true;
+        }else if(startedOperation == true){
+            setNumbers();
+            upperNumbersDisplay.textContent = operate(firstNumber, secondNumber, operator) + '*';
+            numbersDisplay.textContent = '';
+            operator = '*';
+            if(upperNumbersDisplay.textContent.indexOf('Please clear') != -1){
+                upperNumbersDisplay.textContent = upperNumbersDisplay.textContent.slice(0, -1);
+            }
+        }
     }
+   
 })
 
 let content8 = document.getElementById('button8');
 content8.textContent = '1';
 content8.addEventListener('click', () =>{
-    if(numbersDisplay.textContent.length <18){
+    if(numbersDisplay.textContent.length <18 && notAllowed === false){
         numbersDisplay.textContent = numbersDisplay.textContent + content8.textContent;
         displayValue = numbersDisplay.textContent;
     } 
@@ -178,7 +192,7 @@ content8.addEventListener('click', () =>{
 let content9 = document.getElementById('button9');
 content9.textContent = '2';
 content9.addEventListener('click', () =>{
-    if(numbersDisplay.textContent.length <18){
+    if(numbersDisplay.textContent.length <18 && notAllowed === false){
         numbersDisplay.textContent = numbersDisplay.textContent + content9.textContent;
         displayValue = numbersDisplay.textContent;
     } 
@@ -187,7 +201,7 @@ content9.addEventListener('click', () =>{
 let content10 = document.getElementById('button10');
 content10.textContent = '3';
 content10.addEventListener('click', () =>{
-    if(numbersDisplay.textContent.length <18){
+    if(numbersDisplay.textContent.length <18 && notAllowed === false){
         numbersDisplay.textContent = numbersDisplay.textContent + content10.textContent;
         displayValue = numbersDisplay.textContent;
     } 
@@ -229,24 +243,27 @@ content11.addEventListener('click', () =>{
     //     firstNumber = upperNumbersDisplay.textContent.slice(0, -1);
     //     operator = '-';
     // }
-    if(startedOperation == false){
-        upperNumbersDisplay.textContent = numbersDisplay.textContent + '-';
-        numbersDisplay.textContent = '';
-        operator = '-';
-        startedOperation = true;
-    }else if(startedOperation == true){
-        setNumbers();
-        upperNumbersDisplay.textContent = operate(firstNumber, secondNumber, operator) + '-';
-        numbersDisplay.textContent = '';
-        operator = '-';
+    if(notAllowed == false){
+        if(startedOperation == false){
+            upperNumbersDisplay.textContent = numbersDisplay.textContent + '-';
+            numbersDisplay.textContent = '';
+            operator = '-';
+            startedOperation = true;
+        }else if(startedOperation == true){
+            setNumbers();
+            upperNumbersDisplay.textContent = operate(firstNumber, secondNumber, operator) + '-';
+            numbersDisplay.textContent = '';
+            operator = '-';
+        }
     }
+  
       
 })
 
 let content12 = document.getElementById('button12');
 content12.textContent = '0';
 content12.addEventListener('click', () =>{
-    if(numbersDisplay.textContent.length <18){
+    if(numbersDisplay.textContent.length <18 && notAllowed === false){
         numbersDisplay.textContent = numbersDisplay.textContent + content12.textContent;
         displayValue = numbersDisplay.textContent;
     } 
@@ -258,17 +275,20 @@ content13.textContent = '.';
 let content14 = document.getElementById('button14');
 content14.textContent = '+';
 content14.addEventListener('click', () =>{
-    if(startedOperation == false){
-        upperNumbersDisplay.textContent = numbersDisplay.textContent + '+';
-        numbersDisplay.textContent = '';
-        operator = '+';
-        startedOperation = true;
-    }else if(startedOperation == true){
-        setNumbers();
-        upperNumbersDisplay.textContent = operate(firstNumber, secondNumber, operator) + '+';
-        numbersDisplay.textContent = '';
-        operator = '+';
+    if(notAllowed == false){
+        if(startedOperation == false){
+            upperNumbersDisplay.textContent = numbersDisplay.textContent + '+';
+            numbersDisplay.textContent = '';
+            operator = '+';
+            startedOperation = true;
+        }else if(startedOperation == true){
+            setNumbers();
+            upperNumbersDisplay.textContent = operate(firstNumber, secondNumber, operator) + '+';
+            numbersDisplay.textContent = '';
+            operator = '+';
+        }
     }
+    
 })
 
 let content15 = document.getElementById('button15');
@@ -291,4 +311,5 @@ clearButton.addEventListener('click', () =>{
     upperNumbersDisplay.textContent = '';
     operator = '';
     startedOperation = false;
+    notAllowed = false;
 })
