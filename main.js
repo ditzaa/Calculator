@@ -109,12 +109,6 @@ content2.addEventListener('click', () =>{
 let content3 = document.getElementById('button3');
 content3.textContent = '/';
 content3.addEventListener('click', () =>{
-    // if(operator == ''){
-    //     numbersDisplay.textContent = '';
-    //     firstNumber = displayValue;
-    //     upperNumbersDisplay.textContent = displayValue + '/';
-    //     operator = '/';
-    // }
     if(startedOperation == false){
         upperNumbersDisplay.textContent = numbersDisplay.textContent + '/';
         numbersDisplay.textContent = '';
@@ -159,12 +153,6 @@ content6.addEventListener('click', () =>{
 let content7 = document.getElementById('button7');
 content7.textContent = '*';
 content7.addEventListener('click', () =>{
-    // if(operator == ''){
-    //     numbersDisplay.textContent = '';
-    //     firstNumber = displayValue;
-    //     upperNumbersDisplay.textContent = displayValue + '*';
-    //     operator = '*';
-    // }
     if(startedOperation == false){
         upperNumbersDisplay.textContent = numbersDisplay.textContent + '*';
         numbersDisplay.textContent = '';
@@ -270,23 +258,6 @@ content13.textContent = '.';
 let content14 = document.getElementById('button14');
 content14.textContent = '+';
 content14.addEventListener('click', () =>{
-    // if(operator == ''){
-    //     numbersDisplay.textContent = '';
-    //     firstNumber = displayValue;
-    //     upperNumbersDisplay.textContent = displayValue + '+';
-    //     operator = '+';
-    // }else if(operator === '+'){
-    //     secondNumber = numbersDisplay.textContent;
-    //     upperNumbersDisplay.textContent = operate(firstNumber, secondNumber, operator) + '+';
-    //     numbersDisplay.textContent = '';
-    //     firstNumber = upperNumbersDisplay.textContent.slice(0, -1);
-    // }else if(operator == '-'){
-    //     firstNumber = upperNumbersDisplay.textContent.slice(0, -1);
-    //     secondNumber = numbersDisplay.textContent;
-    //     upperNumbersDisplay.textContent = operate(firstNumber, secondNumber, operator) + '+';
-    //     numbersDisplay.textContent = "";
-    //     operator = '+';
-    // }
     if(startedOperation == false){
         upperNumbersDisplay.textContent = numbersDisplay.textContent + '+';
         numbersDisplay.textContent = '';
@@ -296,23 +267,13 @@ content14.addEventListener('click', () =>{
         setNumbers();
         upperNumbersDisplay.textContent = operate(firstNumber, secondNumber, operator) + '+';
         numbersDisplay.textContent = '';
+        operator = '+';
     }
 })
 
 let content15 = document.getElementById('button15');
 content15.textContent = '=';
 content15.addEventListener('click', () =>{
-    // secondNumber = displayValue;
-    // displayValue = operate(firstNumber, secondNumber, operator);
-    // numbersDisplay.textContent = "" + displayValue;
-    // upperNumbersDisplay.textContent = '';
-    // operator = '';
-    // firstNumber = '';
-    // secondNumber = '';
-    // currentValue = displayValue;
-
-    // firstNumber = upperNumbersDisplay.textContent.slice(0, -1);
-    // secondNumber = numbersDisplay.textContent;
     setNumbers();
     numbersDisplay.textContent = operate(firstNumber, secondNumber, operator);
     upperNumbersDisplay.textContent = '';
