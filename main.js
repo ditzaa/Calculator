@@ -4,7 +4,12 @@ let operator = '';
 let notAllowed = false;
 let isFloating = false;
 let numberSign = '+';
+let idOfButton = 'button0';
+let index = 0;
+let displayValue = 0;
+let startedOperation = false;
 
+//functions for calculus
 function add(a, b){
     return +a + +b;
 }
@@ -20,7 +25,7 @@ function multiply(a, b){
 function divide(a, b){
     if(b == 0){
         notAllowed = true;
-        return 'You cannot divide by 0! Please clear!';
+        return 'You cannot divide by 0! Please clear the display!';
     }
     else{
         return +a/ (+b);
@@ -51,9 +56,6 @@ const numbersDisplay = document.getElementById('numbers-container');
 const upperNumbersDisplay = document.getElementById('upper-numbers-container');
 
 //buttons are ordered left to right, top to bottom 
-let idOfButton = 'button0';
-index = 0;
-
 for(i=0; i<4; i++){
     const rowButtonsContainer = document.createElement('div');
     rowButtonsContainer.classList.add('row-container');
@@ -73,14 +75,10 @@ for(i=0; i<4; i++){
 function setNumbers(){
     firstNumber = upperNumbersDisplay.textContent.slice(0, -1);
     secondNumber = numbersDisplay.textContent;
-
     return 0;
 }
 
 //add text to buttons + display numbers on click + make them work
-let displayValue = 0;
-let startedOperation = false;
-
 let content = document.getElementById('button0');
 content.textContent = '7';
 content.addEventListener('click', () =>{
@@ -227,6 +225,9 @@ content11.addEventListener('click', () =>{
             upperNumbersDisplay.textContent = operate(firstNumber, secondNumber, operator) + '-';
             numbersDisplay.textContent = '';
             operator = '-';
+            if(upperNumbersDisplay.textContent.indexOf('Please clear') != -1){
+                upperNumbersDisplay.textContent = upperNumbersDisplay.textContent.slice(0, -1);
+            }
         }
         isFloating = false; 
         numberSign = '+';
@@ -238,7 +239,8 @@ content11.addEventListener('click', () =>{
 let content12 = document.getElementById('button12');
 content12.textContent = '0';
 content12.addEventListener('click', () =>{
-    if(numbersDisplay.textContent.length <18 && notAllowed === false){
+    if(numbersDisplay.textContent.length <18 && notAllowed === false
+        && numbersDisplay.textContent != '0'){
         numbersDisplay.textContent = numbersDisplay.textContent + content12.textContent;
         displayValue = numbersDisplay.textContent;
     } 
@@ -269,6 +271,9 @@ content14.addEventListener('click', () =>{
             upperNumbersDisplay.textContent = operate(firstNumber, secondNumber, operator) + '+';
             numbersDisplay.textContent = '';
             operator = '+';
+            if(upperNumbersDisplay.textContent.indexOf('Please clear') != -1){
+                upperNumbersDisplay.textContent = upperNumbersDisplay.textContent.slice(0, -1);
+            }
         }
         isFloating = false; 
         numberSign = '+';
@@ -297,6 +302,8 @@ clearButton.addEventListener('click', () =>{
     operator = '';
     startedOperation = false;
     notAllowed = false;
+    numberSign = '+';
+    isFloating = false;
 })
 
 const backspaceButton = document.getElementById('backspace-button');
@@ -310,18 +317,17 @@ backspaceButton.addEventListener('click', () =>{
 const signButton = document.getElementById('sign-button');
 signButton.addEventListener('click', () =>{
     if(notAllowed==false){
-        
        if(numberSign == '+'){
-        numberSign = '-';console.log('hi');
-        if(numbersDisplay.textContent = ''){
+        numberSign = '-';
+        if(numbersDisplay.textContent == ''){
             numbersDisplay.textContent = '-';
+
+        }else{
+            numbersDisplay.textContent = '-' + numbersDisplay.textContent;
         }
-        numbersDisplay.textContent = '-' + numbersDisplay.textContent;
-        // minusSign.concat(numbersDisplay.textContent);
         }
 
         else if(numberSign == '-'){
-            console.log('bye');
             numberSign = '+';
             numbersDisplay.textContent = numbersDisplay.textContent.substring(1);
         }

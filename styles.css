@@ -2,6 +2,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #343a40;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239C92AC' fill-opacity='0.25' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), linear-gradient(to right top, #343a40, #2b2c31, #211f22, #151314, #000000);
 }
 
 #calculator-div{
@@ -11,6 +13,7 @@ body{
     margin-top: 1rem;
     border-radius: 2rem; 
     background-color: grey;
+    font-weight: bold;
 }
 
 #display-container{
@@ -22,35 +25,30 @@ body{
     margin-top: 2rem;
     display: flex;
     align-items: flex-end;
-    font-size: 2rem;
     justify-content:flex-end;
     flex-direction: column;
     border-radius: 2rem; 
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    font-size: 2.5rem;
 }
 
 #buttons-container{
-    /* border: 0.3rem solid black; */
     margin: 1rem auto;
     width: 35rem;
     height: 38rem;
-    /* gap: 2rem; */
-    
 }
 
 #numbers-container{
     margin-right: 2rem;
-    border: 0.2rem solid blue;
 }
 
 #upper-numbers-container{
-    border: 0.2rem solid purple;
     display: block;
     margin-right: 2rem;
 }
 
 .row-container{
-    /* border: 0.3rem solid yellow; */
-    /* margin: 1vh auto; */
     width: 33rem;
     height: 6rem;
     margin: auto;
@@ -60,13 +58,7 @@ body{
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-
 }
-
-/* #clear-button #backspace-button #sign-button{
-    margin-left: 6.6rem;
-    width: 2*5rem;
-} */
 
 .calculator-button{
     border: 0.3rem solid black;
@@ -75,14 +67,22 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* font-weight: bold; */
-    font-size: 4rem;
     border-radius: 1.5rem; 
-    padding: 0;
-    /* margin-top: 5rem; */
+    font-family: 'Lora', serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 4.7rem;
 }
 
 #clear-button{
     width: 14.9rem; /* 2*6.7 + 1.5 */
-    /* margin-left: 1.8rem; */
 }
+
+#clear-button, #backspace-button, #sign-button, #button3, #button7, #button11, #button14{
+        background-color: #0066b2;
+        color:white;
+ }
+
+ #button15{ 
+    background-color: orange;
+ }
